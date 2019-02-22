@@ -34,7 +34,7 @@ void printArr(int arr[], int arrSize)
 {
 	for (int i = 0; i < arrSize; i++)
 	{
-		printf("%lu \n", arr[i]);
+		printf("%i \n", arr[i]);
 	}
 }
 
