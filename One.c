@@ -13,8 +13,7 @@ void hashAndFind(int* items, unsigned int size, int sum)
 {
 	int max = findMax(items, size);
 	int min = findMin(items, size);
-	const unsigned hashLen = (max - min) + 2;
-	printf("%i %i %i\n", max, min, hashLen);
+	const unsigned hashLen = (max - min) + 1;
 
 	unsigned int hash[hashLen];	// hash array will map position number with the index that number is found in items
 
@@ -30,16 +29,15 @@ void hashAndFind(int* items, unsigned int size, int sum)
 		if (hashIndex >= 0 && hashIndex < hashLen && hash[hashIndex] != -1)
 		{
 			printf("Sum %i (index=%i) + %i (index=%i) = %i\n", items[i], i, operand, hash[hashIndex], sum);
-			//break;
 		}
 	}
 }
 
 int main()
 {
-	int items[] = {8, 7, 2, 5, 3, 1, 10, -100, 110, 0, 0};
+	int items[] = {8, 7, 2, 5, 3, 1};
 	const unsigned int size = sizeof(items) / sizeof(int);
-	const int sum = 0;
+	const int sum = 10;
 
 	hashAndFind(items,size, sum);
 
