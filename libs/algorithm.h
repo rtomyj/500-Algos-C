@@ -2,5 +2,9 @@
 #define ALGO_H
 void swap(int*, int*, unsigned int, unsigned);
 void sort(int*, unsigned int);
+int compareIntAsc(const void*, const void*);
+int compareIntDesc(const void*, const void*);
+int findMax(int*, unsigned int);
+int findMin(int*, unsigned int);
 
 #endif
