@@ -1,11 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "libs/algorithm.h"
 #include "libs/print.h"
 
-// constant space
+/*
+	The goal is to sort the functon then look at adjacent elements to see if they are equal. If so then there are dups in the original array.
+	
+	Constant Sapce.
+*/
 void sortThenFind(int items[], unsigned int size)
 {
-	sort(items, size);
+	qsort(items, size, sizeof(int), compareIntAsc);
 	for (unsigned int i = 1; i < size; i++)
 	{
 		if (items[i -1] == items[i])
@@ -17,9 +22,15 @@ void sortThenFind(int items[], unsigned int size)
 }
 
 
+/*
+	Keeps an array that acts as a hash. All incices are going to unique unless there is a dup value.
+	
+	Not constant space. O(N) complexity.
+*/
 void hashAndGrab(int items[], unsigned int size, unsigned int maxN)
 {
-	unsigned short set[maxN];
+	const int max = findMax(items, size);
+	unsigned short set[max];
 	for (unsigned int i = 0; i < size; i++)
 	{
 		int hashIndex = items[i] - 1;
@@ -32,7 +43,7 @@ void hashAndGrab(int items[], unsigned int size, unsigned int maxN)
 int main(){
 	int items[] = { 1, 2, 3, 4, 2 };
 	const unsigned int size = sizeof(items) / sizeof(int);
-	//sortThenFind(items, size);
+	sortThenFind(items, size);
 	hashAndGrab(items, size, 5);
 
 }

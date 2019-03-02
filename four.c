@@ -4,8 +4,10 @@
 /*
 	Merging in C isn't simple. This approach has two arrays being passed as arguments.
 	One array will contain the contents to be sorted, the other will hold the sorted contents.
-	Unsorted array is traversed and depending on how the user wants the binary array to be sorted
-	at position i will be pushed to the left or right side of the sorted array.
+	
+	Unsorted array is traversed. If sorting by 0 is desired then leftMostValue should be 0. If sorting starting with 1 is desired then leftMostValue shoudld be 1.
+
+	Not constant space. O(N) time.
 */
 void method_one(unsigned char items[], unsigned char sizeArr, unsigned char sortedItems[], unsigned char leftMostValue)
 {
@@ -34,8 +36,10 @@ void method_one(unsigned char items[], unsigned char sizeArr, unsigned char sort
 	Fills the left most values on top fo the original array.
 	Counts how many left most values there are and stores it in totalLeftMost.
 	Fills the right most values starting at totalLeftMost position.
+
+	Constant space. O(N) time.
 */
-void method_two(unsigned char items[], unsigned size, unsigned char leftMostValue)
+void fillAndCount(unsigned char items[], unsigned size, unsigned char leftMostValue)
 {
 	unsigned char totalLeftMost = 0;
 	unsigned const char rightMostValue = (leftMostValue == 0) ? 1 : 0;
@@ -63,9 +67,10 @@ int main()
 	const unsigned char arrSize = sizeof(items) / sizeof(char);
 	unsigned char sortedItems[arrSize];
 
-	//method_one(items, arrSize, sortedItems, 0);
-	method_two(items, arrSize, 1);
-	printArr(items, arrSize, CHAR);
+	method_one(items, arrSize, sortedItems, 0);
+	printArr(sortedItems, arrSize, CHAR);
+	//fillAndCount(items, arrSize, 1);
+	//printArr(items, arrSize, CHAR);
 
 	return 0;
 }
