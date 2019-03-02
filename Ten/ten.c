@@ -1,35 +1,6 @@
 #include <stdio.h>
-
-/*
-	Prints contents of array given size and contents.
-*/
-void printArr(int arr[], unsigned int arrSize)
-{
-	for (unsigned char i = 0; i < arrSize; i++)
-	{
-		printf("%i\n", arr[i]);
-	}
-}
-
-void sort(int* y, unsigned int ySize)
-{
-	for (int i = 0; i < (ySize - 1); i++)
-	{
-		if (y[i] > y[i + 1])
-		{
-			int temp = y[i];
-			y[i] = y[i + 1];
-			y[i + 1] = temp;
-		}
-	}
-}
-
-void swap(int* x, int* y, unsigned int xPos)
-{
-	int temp = y[0];
-	y[0] = x[xPos];
-	x[xPos] = temp;
-}
+#include "../algorithm.h"
+#include "../print.h"
 
 void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 {
@@ -37,7 +8,7 @@ void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 	{
 		if (x[i] > y[0])
 		{
-			swap(x, y, i);
+			swap(x, y, i, 0);
 			sort(y, ySize);
 		}
 	}
@@ -51,10 +22,9 @@ int main()
 	
 	dualSort(x, y, xSize, ySize);
 
-	printArr(x, xSize);
+	printArr(x, xSize, INT);
 	printf("\n");
-	printArr(y, ySize);
-
+	printArr(y, ySize, INT);
 
 	return 0;
 }

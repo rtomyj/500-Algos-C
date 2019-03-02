@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../print.h"
 
 /*
 	Merging in C isn't simple. This approach has two arrays being passed as arguments.
@@ -55,17 +56,6 @@ void method_two(unsigned char items[], unsigned size, unsigned char leftMostValu
 }
 
 
-/*
-	Prints contents of array given size and contents.
-*/
-void printArr(unsigned char arr[], unsigned char arrSize)
-{
-	for (unsigned char i = 0; i < arrSize; i++)
-	{
-		printf("%i\n", arr[i]);
-	}
-}
-
 
 int main()
 {
@@ -75,7 +65,7 @@ int main()
 
 	//method_one(items, arrSize, sortedItems, 0);
 	method_two(items, arrSize, 1);
-	printArr(items, arrSize);
+	printArr(items, arrSize, CHAR);
 
 	return 0;
 }
