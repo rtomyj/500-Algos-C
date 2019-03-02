@@ -8,7 +8,7 @@ void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 	{
 		if (x[i] > y[0])
 		{
-			swap(x, y, i, 0);
+			swapElement(x, y, i, 0);
 			sort(y, ySize);
 		}
 	}

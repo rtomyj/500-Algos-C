@@ -1,6 +1,6 @@
 #include "algorithm.h"
 
-void swap(int* x, int* y, unsigned int xPos, unsigned yPos)
+void swapElement(int* x, int* y, unsigned int xPos, unsigned yPos)
 {
 	int temp = y[yPos];
 	y[yPos] = x[xPos];
@@ -13,7 +13,7 @@ void sort(int* y, unsigned int ySize)
 	{
 		if (y[i] > y[i + 1])
 		{
-			swap(y, y, i, i + 1);
+			swapElement(y, y, i, i + 1);
 		}
 	}
 }
