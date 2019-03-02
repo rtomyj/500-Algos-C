@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int sortAsc(const void *, const void *);
 int sortDesc(const void *, const void *);
