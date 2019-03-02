@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../print.h"
+#include "libs/print.h"
 
 /*
 	Merging in C isn't simple. This approach has two arrays being passed as arguments.

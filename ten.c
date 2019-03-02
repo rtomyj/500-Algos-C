@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../algorithm.h"
-#include "../print.h"
+#include "libs/algorithm.h"
+#include "libs/print.h"
 
 void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 {

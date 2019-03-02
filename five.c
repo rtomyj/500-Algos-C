@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../algorithm.h"
-#include "../print.h"
+#include "libs/algorithm.h"
+#include "libs/print.h"
 
 // constant space
 void sortThenFind(int items[], unsigned int size)
