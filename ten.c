@@ -2,6 +2,9 @@
 #include "libs/algorithm.h"
 #include "libs/print.h"
 
+/*
+	The Y array is always either sorted or one element is messing up the sort. If we resort the array then we can assume the left most integer is the least. This will help us decide if we need to swap x[i] with y[0]. 
+*/
 void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 {
 	for (int i = 0; i < xSize; i++)
@@ -9,7 +12,7 @@ void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 		if (x[i] > y[0])
 		{
 			swapElement(x, y, i, 0);
-			sort(y, ySize);
+			reSort(y, ySize);
 		}
 	}
 }

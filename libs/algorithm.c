@@ -7,7 +7,7 @@ void swapElement(int* x, int* y, unsigned int xPos, unsigned yPos)
 	x[xPos] = temp;
 }
 
-void sort(int* y, unsigned int ySize)
+void reSort(int* y, unsigned int ySize)
 {
 	for (int i = 0; i < (ySize - 1); i++)
 	{
