@@ -5,14 +5,16 @@
 	Merging in C isn't simple. This approach has two arrays being passed as arguments.
 	One array will contain the contents to be sorted, the other will hold the sorted contents.
 	
-	Unsorted array is traversed. If sorting by 0 is desired then leftMostValue should be 0. If sorting starting with 1 is desired then leftMostValue shoudld be 1.
+	Unsorted array is traversed. If sorting by 0 is desired then leftMostValue should be 0. If sorting starting with 1 is 
+	desired then leftMostValue shoudld be 1.
 
 	Not constant space. O(N) time.
 */
-void method_one(unsigned char items[], unsigned char sizeArr, unsigned char sortedItems[], unsigned char leftMostValue)
+void useOppositeEnds(unsigned char items[], unsigned char sizeArr, unsigned char sortedItems[], unsigned char leftMostValue)
 {
 	unsigned const char rightMostValue = (leftMostValue == 0) ? 1 : 0;	// determinse the right most value (!leftMostValue)
-	unsigned char leftMostIndex = 0, rightMostIndex = sizeArr -1;	// starting positions for inserting left and right values in sorte darray
+	// starting positions for inserting left and right values in sorted darray
+	unsigned char leftMostIndex = 0, rightMostIndex = sizeArr -1;
 	
 	for (unsigned char i = 0; i < sizeArr; i++)
 	{
@@ -67,10 +69,10 @@ int main()
 	const unsigned char arrSize = sizeof(items) / sizeof(char);
 	unsigned char sortedItems[arrSize];
 
-	method_one(items, arrSize, sortedItems, 0);
+	fillAndCount(items, arrSize, 0);
+	printArr(items, arrSize, CHAR);
+	useOppositeEnds(items, arrSize, sortedItems, 1);
 	printArr(sortedItems, arrSize, CHAR);
-	//fillAndCount(items, arrSize, 1);
-	//printArr(items, arrSize, CHAR);
 
 	return 0;
 }

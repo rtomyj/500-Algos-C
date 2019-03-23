@@ -3,7 +3,8 @@
 #include "libs/print.h"
 
 /*
-	The Y array is always either sorted or one element is messing up the sort. If we resort the array then we can assume the left most integer is the least. This will help us decide if we need to swap x[i] with y[0]. 
+	The Y array is always either sorted or one element is messing up the sort. If we resort the array then we can assume 
+	the left most integer is the least. This will help us decide if we need to swap x[i] with y[0]. 
 */
 void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 {
@@ -17,6 +18,7 @@ void dualSort(int* x, int* y, unsigned int xSize, unsigned int ySize)
 	}
 }
 
+
 int main()
 {
 	int x[] = {1, 4, 7, 8, 10};
@@ -26,7 +28,6 @@ int main()
 	dualSort(x, y, xSize, ySize);
 
 	printArr(x, xSize, INT);
-	printf("\n");
 	printArr(y, ySize, INT);
 
 	return 0;

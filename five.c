@@ -4,9 +4,10 @@
 #include "libs/print.h"
 
 /*
-	The goal is to sort the functon then look at adjacent elements to see if they are equal. If so then there are dups in the original array.
+	The goal is to sort the functon then look at adjacent elements to see if they are equal. 
+	If so then there are dups in the original array.
 	
-	Constant Sapce.
+	Constant Sapce O(N).
 */
 void sortThenFind(int items[], unsigned int size)
 {
@@ -23,7 +24,7 @@ void sortThenFind(int items[], unsigned int size)
 
 
 /*
-	Keeps an array that acts as a hash. All incices are going to unique unless there is a dup value.
+	Keeps an array that acts as a hash. All indices are going to unique unless there is a dup value.
 	
 	Not constant space. O(N) complexity.
 */
@@ -40,10 +41,14 @@ void hashAndGrab(int items[], unsigned int size, unsigned int maxN)
 	}
 }
 
+
 int main(){
 	int items[] = { 1, 2, 3, 4, 2 };
 	const unsigned int size = sizeof(items) / sizeof(int);
 	sortThenFind(items, size);
-	hashAndGrab(items, size, 5);
+
+	int items2[] = { 1, 2, 3, 4, 4 };
+	const unsigned int size2 = sizeof(items2) / sizeof(int);
+	hashAndGrab(items2, size2, 5);
 
 }

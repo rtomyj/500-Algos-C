@@ -5,9 +5,13 @@
 
 
 /*
-	Originally we are given an array of index mapping to an operand, we can create an array of operands mapping to an index to hash operands. In the hashed arrays case, the indexes are operands found in the original array and the value will be the index it is found in the original array.
+	Originally we are given an array of index mapping to an operand, we can create an array of operands mapping to an 
+	index to hash operands. In the hashed arrays case, the indexes are operands found in the original array and the value 
+	will be the index it is found in the original array.
 
-	Looping through the original array will get us <operandA>. Checking the hash will let us know if we have seen <operandB> given by equation operandA + operandB = sum. Since A+B=B+A we can both build the hash and check the hash in a single loop.
+	Looping through the original array will get us <operandA>. Checking the hash will let us know if we have seen 
+	<operandB> given by equation operandA + operandB = sum. Since A+B=B+A we can both build the hash and check the hash 
+	in a single loop.
 */
 void hashAndFind(int* items, unsigned int size, int sum)
 {
@@ -28,7 +32,7 @@ void hashAndFind(int* items, unsigned int size, int sum)
 
 		if (hashIndex >= 0 && hashIndex < hashLen && hash[hashIndex] != -1)
 		{
-			printf("Sum %i (index=%i) + %i (index=%i) = %i\n", items[i], i, operand, hash[hashIndex], sum);
+			printf("%i (index = %i) + %i (index = %i) = %i\n", items[i], i, operand, hash[hashIndex], sum);
 		}
 	}
 }
