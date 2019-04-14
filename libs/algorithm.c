@@ -2,9 +2,16 @@
 
 void swapElement(int* x, int* y, unsigned int xPos, unsigned yPos)
 {
-	int temp = y[yPos];
+	const int temp = y[yPos];
 	y[yPos] = x[xPos];
 	x[xPos] = temp;
+}
+
+void swapElement2(int *x, unsigned int aPos, unsigned bPos)
+{
+	const int temp = x[aPos];
+	x[aPos] = x[bPos];
+	x[bPos] = temp;
 }
 
 void reSort(int* y, unsigned int ySize)
