@@ -6,6 +6,12 @@ typedef enum INT_TYPE {
 	CHAR = 2,
 } INT_TYPE;
 
+struct returnArr
+{
+	unsigned size;
+	int *arr;
+};
+
 void printArr(void*, unsigned int, INT_TYPE);
 
 #endif

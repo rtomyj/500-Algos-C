@@ -67,3 +67,24 @@ int findMin(int* items, unsigned int size)
 
 	return min;
 }
+
+
+struct subArr splice(int* items, unsigned size, unsigned start, unsigned end)
+{
+	int* sub = malloc( (end - start) * sizeof(int));
+	unsigned subArrPos = 0;
+
+	if (end > size) end = size;
+
+	for (unsigned ind = start; ind < end; ind++)
+	{
+		sub[subArrPos] = items[ind];
+		++subArrPos;
+	}
+
+	struct subArr subArr;
+	subArr.arr = sub;
+	subArr.size = subArrPos;
+
+	return subArr;
+}
