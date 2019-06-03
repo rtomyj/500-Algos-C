@@ -20,7 +20,7 @@ void printArr(void* startingMemLocation, unsigned int arrSize, INT_TYPE intType)
 				case CHAR:
 					printf("%d", *(char*)startingMemLocation);
 					break;
-			
+
 				default:
 					break;
 			}
@@ -46,11 +46,19 @@ void printArr(void* startingMemLocation, unsigned int arrSize, INT_TYPE intType)
 					nextCharLocation = (char *) startingMemLocation + i;
 					printf(", %d", *nextCharLocation);
 					break;
-			
+
 				default:
 					break;
 			}
 		}
 	}
 	printf("]\n");
+}
+
+void printSubArrs(subArr* subArrs, unsigned int size)
+{
+	for (unsigned ind = 0; ind < size; ind++)
+	{
+		printArr(subArrs[ind].arr, subArrs[ind].size, INT);
+	}
 }

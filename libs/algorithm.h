@@ -2,12 +2,7 @@
 #define ALGO_H
 #include <stdio.h>
 #include <stdlib.h>
-
-struct subArr
-{
-	int* arr;
-	unsigned size;
-};
+#include "cust_structs.h"
 
 void swapElement(int*, int*, unsigned int, unsigned);
 void swapElement2(int*, unsigned int, unsigned);

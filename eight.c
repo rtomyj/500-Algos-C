@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include "libs/print.h"
 
-struct returnArr getMaxLenSubarr(int* items, unsigned size)
+struct subArr getMaxLenSubarr(int* items, unsigned size)
 {
 	int sum = 0;
 	int SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[size * 2][2];
@@ -55,8 +55,8 @@ struct returnArr getMaxLenSubarr(int* items, unsigned size)
 	int left = 0, right = 0;
 	for (int ind = 0; ind < size * 2; ind++)
 	{
-		if (SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][0] != -1 
-				&& SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][1] != -1 
+		if (SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][0] != -1
+				&& SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][1] != -1
 				&& SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][1] - SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][0] > maxLen)
 		{
 			maxLen = SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][1] - SUM_OFFSET_maps_LEFT_RIGHT_OCCURANCE[ind][0];
@@ -68,7 +68,7 @@ struct returnArr getMaxLenSubarr(int* items, unsigned size)
 	int subArr[maxLen];
 	for (int ind = 0; ind < maxLen; ind++)	subArr[ind] = items[ind + left];
 
-	struct returnArr ra;
+	struct subArr ra;
 	ra.arr = subArr;
 	ra.size = maxLen;
 	return ra;
@@ -79,9 +79,9 @@ int main()
 {
 	int items[] = {1, 0, 1, 1, 0, 1, 0};
 	unsigned size = sizeof(items) / sizeof(int);
-	struct returnArr ra = getMaxLenSubarr(items, size);
+	struct subArr ra = getMaxLenSubarr(items, size);
 	printArr(ra.arr, ra.size, INT);
-	
+
 	int items2[] = {0, 0, 0, 0, 0, 0, 0};
 	size = sizeof(items2) / sizeof(int);
 	ra = getMaxLenSubarr(items2, size);
