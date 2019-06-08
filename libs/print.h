@@ -2,7 +2,7 @@
 #define PRINT_H
 #include "cust_structs.h"
 
-void printArr(void*, unsigned int, INT_TYPE);
-void printSubArrs(subArr*, unsigned int);
+void printArr(void *, unsigned, INT_TYPE);
+void printSubArrs(subArr *, unsigned);
 
 #endif
