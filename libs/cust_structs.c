@@ -6,6 +6,7 @@ void *resizeDynArray(void *array, dynamicArrMeta *meta)
 	{
 		meta->maxCap += meta->step;
 		array = realloc(array, meta->maxCap * meta->sizeOfElement);
+		meta->totalSize = meta->sizeOfElement * meta->maxCap;
 	}
 
 	return array;
@@ -18,6 +19,7 @@ dynamicArrMeta newDynamicArrMeta(unsigned cap, unsigned step, unsigned sizeOfEle
 	meta.step = step;
 	meta.sizeOfElement = sizeOfElement;
 	meta.nextUnused = 0;
+	meta.totalSize = sizeOfElement * cap;
 
 	return meta;
 }

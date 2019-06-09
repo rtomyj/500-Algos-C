@@ -21,6 +21,7 @@ typedef struct dynamicArrMeta
 	unsigned step;
 	unsigned nextUnused;
 	unsigned sizeOfElement;
+	unsigned totalSize;
 } dynamicArrMeta;
 
 void *resizeDynArray(void *, dynamicArrMeta *);
