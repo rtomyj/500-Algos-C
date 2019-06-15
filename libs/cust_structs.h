@@ -24,7 +24,10 @@ typedef struct dynamicArrMeta
 	unsigned totalSize;
 } dynamicArrMeta;
 
-void *resizeDynArray(void *, dynamicArrMeta *);
-dynamicArrMeta newDynamicArrMeta(unsigned, unsigned, unsigned);
+typedef enum bool
+{
+	false = 0,
+	true = 1
+} bool;
 
 #endif
