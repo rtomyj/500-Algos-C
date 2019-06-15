@@ -2,22 +2,22 @@
 
 unsigned char checkSet(struct HashSet *hashSet, int value)
 {
-	unsigned hashValue = value % hashSet->hashSize;
+	unsigned hashValue = value % hashSet->setSize;
 
 	if (value == 0)
 	{
-		if (hashSet->set[hashValue] != 0)	return 2;	// collision
-		if (hashSet->zeroHasBeenAdded == 1)	return 1;	// dup
-		else	return 0;
+		if (hashSet->set[hashValue] != 0)	return COLLISION;
+		if (hashSet->zeroHasBeenAdded == 1)	return DUP;
+		else	return SUCCESS;
 	}
 	else
 	{
 		if (hashSet->set[hashValue] != 0)
 		{
-			if (hashSet->set[hashValue] == value)	return  1;	// dup
-			else	return 2;	// collision
+			if (hashSet->set[hashValue] == value)	return  DUP;
+			else	return COLLISION;
 		}
-		else	return 0;
+		else	return SUCCESS;
 	}
 }
 
@@ -28,30 +28,30 @@ unsigned char repopulateSetresizeSet(struct HashSet *hashSet)
 	{
 		if (checkSet(hashSet, hashSet->record[ind]) == 2)
 		{
-			return 2;
+			return COLLISION;
 		}
-		else hashSet->set[hashSet->record[ind] % hashSet->hashSize] = hashSet->record[ind];
+		else hashSet->set[hashSet->record[ind] % hashSet->setSize] = hashSet->record[ind];
 	}
 
-	int *record = (int *) realloc(hashSet->record, sizeof(int) * hashSet->hashSize);
+	int *record = (int *) realloc(hashSet->record, sizeof(int) * hashSet->setSize);
 	hashSet->record = record;
 
-	return 0;
+	return SUCCESS;
 }
 
 void resizeSet(struct HashSet *hashSet)
 {
-	hashSet->hashSize = hashSet->hashSize * 1.2 + 2;
+	hashSet->setSize = hashSet->setSize * 1.2 + 2;
 	free(hashSet->set);
 	
-	hashSet->set = (int *) calloc(sizeof(int), hashSet->hashSize);
+	hashSet->set = (int *) calloc(sizeof(int), hashSet->setSize);
 }
 
 
 unsigned char insert(struct HashSet *hashSet, int value)
 {
-	unsigned char insertResult = 0;
-	if ( (insertResult = checkSet(hashSet, value)) == 2)
+	unsigned char insertResult = SUCCESS;
+	if ( (insertResult = checkSet(hashSet, value)) == COLLISION)
 	{
 		resizeSet(hashSet);
 		hashSet->record[hashSet->numberOfRecords] = value;
@@ -65,7 +65,7 @@ unsigned char insert(struct HashSet *hashSet, int value)
 	}
 	else
 	{
-		hashSet->set[value % hashSet->hashSize] = value;
+		hashSet->set[value % hashSet->setSize] = value;
 		hashSet->record[hashSet->numberOfRecords] = value;
 		++hashSet->numberOfRecords;
 	}
@@ -84,7 +84,7 @@ struct HashSet * getHashSet()
 	struct HashSet *hashSet = (struct HashSet *) malloc(sizeof(struct HashSet));
 	hashSet->set = (int *) calloc(sizeof(int), initSize);
 	hashSet->record = (int *) malloc(sizeof(int) * initSize);
-	hashSet->hashSize = initSize;
+	hashSet->setSize = initSize;
 	hashSet->numberOfRecords = 0;
 	hashSet->zeroHasBeenAdded = 0;
 
