@@ -25,6 +25,28 @@ void reSort(int *y, unsigned ySize)
 	}
 }
 
+
+void sort(int *items, unsigned size)
+{
+	for (unsigned ind = 0; ind < size; ind++)
+	{
+		for (unsigned jnd = ind; jnd < size; jnd++)
+		{
+			if (items[ind] > items[jnd])	swapElement2(items, ind, jnd);
+		}
+	}
+}
+
+
+void copy(int *source, int *dest, unsigned size)
+{
+	for (unsigned ind = 0; ind < size; ind++)
+	{
+		dest[ind] = source[ind];
+	}
+}
+
+
 int compareIntAsc(const void* left, const void* right)
 {
 	int l = *((int *)left);
@@ -66,6 +88,19 @@ int findMin(int *items, unsigned size)
 	}
 
 	return min;
+}
+
+int * findMinMax(int *items, unsigned size)
+{
+	int *minMax = malloc(sizeof(int) * 2);
+	minMax[0] = items[0], minMax[1] = items[1];
+	for (unsigned i = 1; i < size; i++)
+	{
+		if (items[i] < minMax[0])	minMax[0] = items[i];
+		else if (items[i] > minMax[1])	minMax[1] = items[i];
+	}
+
+	return minMax;
 }
 
 
