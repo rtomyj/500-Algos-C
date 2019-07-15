@@ -50,9 +50,13 @@ Becomes [1, 2, 3] [4, 5]
 
 Given two sorted arrays x and y where x has a size of M and y has a size of N and x has exactly N vacant spots, merge the two arrays.
 
-12. Find index of 0 to replaced to get maximum length sequence of continuous ones
+### 12. Find index of 0 to replaced to get maximum length sequence of continuous ones
+
+Given a binary array, find a 0 to replace that will give the maximum number of consecutive 1's.
 
 13. Find maximum product of two integers in an array
+
+Given an integer array, find the maximum product using only two of the elements.
 
 14. Shuffle a given array of elements (Fisher-Yates shuffle)
 
