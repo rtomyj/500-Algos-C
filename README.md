@@ -54,7 +54,7 @@ Given two sorted arrays x and y where x has a size of M and y has a size of N an
 
 Given a binary array, find a 0 to replace that will give the maximum number of consecutive 1's.
 
-13. Find maximum product of two integers in an array
+### 13. Find maximum product of two integers in an array
 
 Given an integer array, find the maximum product using only two of the elements.
 
