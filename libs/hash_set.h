@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-struct HashSet
+typedef struct HashSet
 {
 	int *set;
 	int *record;
